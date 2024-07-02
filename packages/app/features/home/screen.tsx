@@ -10,13 +10,15 @@ import {
   SwitchRouterButton,
   XStack,
   YStack,
+  TextArea,
 } from '@my/ui'
 import { ChevronDown, ChevronUp, X } from '@tamagui/lucide-icons'
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { Platform } from 'react-native'
 import { useLink } from 'solito/navigation'
 
 export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
+  const id = useId()
   const linkTarget = pagesMode ? '/pages-example-user' : '/user'
   const linkProps = useLink({
     href: `${linkTarget}/nate`,
@@ -42,6 +44,7 @@ export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
       </XStack>
 
       <YStack gap="$4">
+        <TextArea id={id} placeholder="Duplicate ID here" />
         <H1 ta="center" col="$color12">
           Welcome to Tamagui.
         </H1>
